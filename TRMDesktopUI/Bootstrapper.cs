@@ -25,6 +25,8 @@ namespace TRMDesktopUI
                 .Singleton<IWindowManager, WindowManager>() // bringing windows in and out
                 .Singleton<IEventAggregator, EventAggregator>(); // event messaging
 
+            container.PerRequest<ICalculations, Calculations>();
+
             // reflection: powerful but slow. Configure is run once so it's fine
             GetType().Assembly.GetTypes()
                 .Where(type => type.IsClass)
