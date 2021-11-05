@@ -5,7 +5,8 @@ namespace TRMDesktopUI.ViewModels
 {
     public class ShellViewModel : Conductor<object>
     {
-        private LoginViewModel loginVM;
+        private readonly LoginViewModel loginVM;
+        private readonly ICalculations calculations;
 
         public ShellViewModel(LoginViewModel loginVM)
         {
@@ -13,12 +14,9 @@ namespace TRMDesktopUI.ViewModels
             ActivateItemAsync(loginVM);
         }
 
-        private ICalculations calculations;
-
         public ShellViewModel(ICalculations calculations)
         {
             this.calculations = calculations;
-
             Console.WriteLine($"Adding: {calculations.Add(1.3, 4.3)}");
         }
     }

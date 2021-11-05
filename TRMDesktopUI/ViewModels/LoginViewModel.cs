@@ -9,7 +9,7 @@ namespace TRMDesktopUI.ViewModels
     {
         private string _userName;
         private string _password;
-        private IAPIHelper _apiHelper;
+        private readonly IAPIHelper _apiHelper;
 
         public LoginViewModel(IAPIHelper apiHelper)
         {
@@ -18,7 +18,7 @@ namespace TRMDesktopUI.ViewModels
 
         public string UserName
         {
-            get { return _userName; }
+            get => _userName;
             set
             {
                 _userName = value;
@@ -29,7 +29,7 @@ namespace TRMDesktopUI.ViewModels
 
         public string Password
         {
-            get { return _password; }
+            get => _password;
             set
             {
                 _password = value;
@@ -38,25 +38,36 @@ namespace TRMDesktopUI.ViewModels
             }
         }
 
-        public bool CanLogIn
+        public bool IsErrorVisible => ErrorMessage?.Length > 0;
+
+        private string _errorMessage;
+
+        public string ErrorMessage
         {
-            get
+            get => _errorMessage;
+            set
             {
-                return UserName?.Length > 0 && Password?.Length > 0;
+                _errorMessage = value;
+                NotifyOfPropertyChange(() => ErrorMessage);
+                NotifyOfPropertyChange(() => IsErrorVisible);
             }
         }
 
+        public bool CanLogIn => UserName?.Length > 0 && Password?.Length > 0;
+
         public async Task LogIn()
         {
+            ErrorMessage = "";
+            Console.WriteLine($"Logging in with username \"{UserName}\" and password \"{Password}\"...");
+
             try
             {
-                Console.WriteLine($"Logging in with username \"{UserName}\" and password \"{Password}\"...");
                 var result = await _apiHelper.Authenticate(UserName, Password);
                 Console.WriteLine($"Result: {result}");
             }
             catch (Exception e)
             {
-                Console.WriteLine($"Exception thrown: {e.Message}");
+                ErrorMessage = e.Message;
             }
         }
     }
