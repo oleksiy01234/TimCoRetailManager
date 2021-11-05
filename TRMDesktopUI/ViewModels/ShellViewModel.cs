@@ -1,9 +1,18 @@
-﻿using System;
+﻿using Caliburn.Micro;
+using System;
 
 namespace TRMDesktopUI.ViewModels
 {
-    public class ShellViewModel
+    public class ShellViewModel : Conductor<object>
     {
+        private LoginViewModel loginVM;
+
+        public ShellViewModel(LoginViewModel loginVM)
+        {
+            this.loginVM = loginVM;
+            ActivateItemAsync(loginVM);
+        }
+
         private ICalculations calculations;
 
         public ShellViewModel(ICalculations calculations)
