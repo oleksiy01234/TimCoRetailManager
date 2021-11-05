@@ -30,7 +30,8 @@ namespace TRMDesktopUI
             // 2 things that calibermicro wants
             container
                 .Singleton<IWindowManager, WindowManager>() // bringing windows in and out
-                .Singleton<IEventAggregator, EventAggregator>(); // event messaging
+                .Singleton<IEventAggregator, EventAggregator>() // event messaging
+                .Singleton<IAPIHelper, APIHelper>();
 
             container.PerRequest<ICalculations, Calculations>();
 
