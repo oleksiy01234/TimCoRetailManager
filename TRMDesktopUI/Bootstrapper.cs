@@ -5,6 +5,8 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using TRMDesktopUI.Helpers;
+using TRMDesktopUI.Library.Api;
+using TRMDesktopUI.Library.Models;
 using TRMDesktopUI.ViewModels;
 
 namespace TRMDesktopUI
@@ -28,9 +30,11 @@ namespace TRMDesktopUI
             container.Instance(container);
 
             // 2 things that calibermicro wants
+            // whenever I ask for IX, I get X
             container
                 .Singleton<IWindowManager, WindowManager>() // bringing windows in and out
                 .Singleton<IEventAggregator, EventAggregator>() // event messaging
+                .Singleton<ILoggedInUserModel, LoggedInUserModel>()
                 .Singleton<IAPIHelper, APIHelper>();
 
             container.PerRequest<ICalculations, Calculations>();

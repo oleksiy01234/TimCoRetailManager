@@ -1,4 +1,4 @@
-﻿namespace TRMDesktopUI.Models
+﻿namespace TRMDesktopUI.Library.Models
 {
     public class AuthenticatedUser
     {

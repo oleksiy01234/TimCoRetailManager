@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TRMDataManager.Library")]
+[assembly: AssemblyTitle("TRMDesktopUI.Library")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("TRMDataManager.Library")]
+[assembly: AssemblyProduct("TRMDesktopUI.Library")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("01b7a4a7-e388-4ced-9ff2-4c3b2fba5e78")]
+[assembly: Guid("a741e07a-b8a2-498d-a3c4-87d2692961bb")]
 
 // Version information for an assembly consists of the following four values:
 //
