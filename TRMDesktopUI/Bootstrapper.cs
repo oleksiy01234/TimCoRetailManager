@@ -27,7 +27,9 @@ namespace TRMDesktopUI
 
         protected override void Configure()
         {
-            container.Instance(container);
+            container
+                .Instance(container)
+                .PerRequest<IProductEndpoint, ProductEndpoint>();
 
             // 2 things that calibermicro wants
             // whenever I ask for IX, I get X

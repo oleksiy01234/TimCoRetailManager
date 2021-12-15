@@ -30,10 +30,16 @@
                    Margin="0 0 0 20" HorizontalAlignment="Center"/>
 
         <TextBlock Text="Items" Grid.Row="1" Grid.Column="0" />
-        <ListBox 
+        <ListBox
             x:Name="Products"
             Grid.Row="2" Grid.Column="0"
-            MinHeight="200" MinWidth="150"/>
+            MinHeight="200" MinWidth="150">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding ProductName}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
 
         <StackPanel
             Orientation="Vertical"
@@ -50,7 +56,8 @@
         <ListBox 
             x:Name="Cart"
             Grid.Row="2" Grid.Column="2"
-            MinHeight="200" MinWidth="150"/>
+            MinHeight="200" MinWidth="150">
+        </ListBox>
 
         <DockPanel Grid.Row="3" Grid.Column="2">
             <TextBlock Text="Subtotal: " Margin="0 0 15 0"/>
